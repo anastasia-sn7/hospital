@@ -4,6 +4,9 @@ class CreateMedcards < ActiveRecord::Migration[7.0]
       t.string :name
       t.integer :year
 
+      t.references :pacient, null: false, foreign_key: true
+      t.references :clinic, null: false, foreign_key: true
+
       t.timestamps
     end
 
