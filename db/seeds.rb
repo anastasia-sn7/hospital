@@ -629,4 +629,4 @@ connection.execute("CREATE VIEW DoctorsAndSpec AS SELECT doctors.name, doctors.e
 FROM doctors INNER JOIN specializations ON doctors.specialization_id = specializations.id")
 connection.execute("DROP VIEW IF EXISTS MedcardsAndPacients")
 connection.execute("CREATE VIEW MedcardsAndPacients AS SELECT pacients.name, pacients.diagnosis, medcards.name
-FROM pacients INNER JOIN medcards ON pacients.id = medcard.pacient_id")
+FROM pacients INNER JOIN medcards ON pacients.id = medcards.pacient_id")
