@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Medcards</h1>
+
+<div id="medcards">
+  <% @medcards.each do |medcard| %>
+    <%= render medcard %>
+    <p>
+      <%= link_to "Show this medcard", medcard %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New medcard", new_medcard_path %>

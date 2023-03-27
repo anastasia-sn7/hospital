@@ -1,0 +1,42 @@
+<%= form_with(model: medcard) do |form| %>
+  <% if medcard.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(medcard.errors.count, "error") %> prohibited this medcard from being saved:</h2>
+
+      <ul>
+        <% medcard.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :medcard_id, style: "display: block" %>
+    <%= form.number_field :medcard_id %>
+  </div>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :year, style: "display: block" %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div>
+    <%= form.label :pacient_id, style: "display: block" %>
+    <%= form.text_field :pacient_id %>
+  </div>
+
+  <div>
+    <%= form.label :clinic_id, style: "display: block" %>
+    <%= form.text_field :clinic_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
