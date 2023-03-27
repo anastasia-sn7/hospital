@@ -1,9 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  medcard_id: 1
   name: MyString
   year: 1
+  pacient: one
+  clinic: one
 
 two:
+  medcard_id: 1
   name: MyString
   year: 1
+  pacient: two
+  clinic: two

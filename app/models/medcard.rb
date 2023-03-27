@@ -1,4 +1,4 @@
 class Medcard < ApplicationRecord
+  belongs_to :pacient
   belongs_to :clinic
-  has_one :patient
 end

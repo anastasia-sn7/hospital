@@ -1,3 +1,3 @@
 class Pacient < ApplicationRecord
-  belongs_to :medcard
+  has_one :medcard
 end
