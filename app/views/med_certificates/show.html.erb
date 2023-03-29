@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @med_certificate %>
+
+<div>
+  <%= link_to "Edit this med certificate", edit_med_certificate_path(@med_certificate) %> |
+  <%= link_to "Back to med certificates", med_certificates_path %>
+
+  <%= button_to "Destroy this med certificate", @med_certificate, method: :delete %>
+</div>

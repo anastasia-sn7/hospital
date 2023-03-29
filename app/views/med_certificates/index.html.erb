@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Med certificates</h1>
+
+<div id="med_certificates">
+  <% @med_certificates.each do |med_certificate| %>
+    <%= render med_certificate %>
+    <p>
+      <%= link_to "Show this med certificate", med_certificate %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New med certificate", new_med_certificate_path %>

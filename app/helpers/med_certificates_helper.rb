@@ -1,0 +1,2 @@
+module MedCertificatesHelper
+end

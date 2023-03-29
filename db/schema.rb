@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_15_212340) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_29_192354) do
   create_table "clinics", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -30,6 +30,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_212340) do
     t.index "\"doctor_id\"", name: "index_doctors_on_doctor_id"
     t.index ["repartment_id"], name: "index_doctors_on_repartment_id"
     t.index ["specialization_id"], name: "index_doctors_on_specialization_id"
+  end
+
+  create_table "med_certificates", force: :cascade do |t|
+    t.integer "doctor_id", null: false
+    t.integer "patient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_med_certificates_on_doctor_id"
+    t.index ["patient_id"], name: "index_med_certificates_on_patient_id"
   end
 
   create_table "medcards", force: :cascade do |t|
@@ -72,6 +81,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_212340) do
 
   add_foreign_key "doctors", "repartments"
   add_foreign_key "doctors", "specializations"
+  add_foreign_key "med_certificates", "doctors"
+  add_foreign_key "med_certificates", "patients"
   add_foreign_key "medcards", "clinics"
   add_foreign_key "medcards", "pacients"
   add_foreign_key "repartments", "clinics"
