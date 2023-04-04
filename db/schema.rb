@@ -12,77 +12,83 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_29_192354) do
   create_table "clinics", force: :cascade do |t|
+    t.integer "clinic_id"
     t.string "name"
     t.string "address"
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"clinic_id\"", name: "index_clinics_on_clinic_id"
+    t.index ["clinic_id"], name: "index_clinics_on_clinic_id"
   end
 
   create_table "doctors", force: :cascade do |t|
+    t.integer "doctor_id"
     t.string "name"
     t.integer "experience_in_years"
     t.integer "repartment_id", null: false
     t.integer "specialization_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"doctor_id\"", name: "index_doctors_on_doctor_id"
+    t.index ["doctor_id"], name: "index_doctors_on_doctor_id"
     t.index ["repartment_id"], name: "index_doctors_on_repartment_id"
     t.index ["specialization_id"], name: "index_doctors_on_specialization_id"
   end
 
   create_table "med_certificates", force: :cascade do |t|
     t.integer "doctor_id", null: false
-    t.integer "patient_id", null: false
+    t.integer "pacient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["doctor_id"], name: "index_med_certificates_on_doctor_id"
-    t.index ["patient_id"], name: "index_med_certificates_on_patient_id"
+    t.index ["pacient_id"], name: "index_med_certificates_on_pacient_id"
   end
 
   create_table "medcards", force: :cascade do |t|
+    t.integer "medcard_id"
     t.string "name"
     t.integer "year"
     t.integer "pacient_id", null: false
     t.integer "clinic_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"medcard_id\"", name: "index_medcards_on_medcard_id"
     t.index ["clinic_id"], name: "index_medcards_on_clinic_id"
+    t.index ["medcard_id"], name: "index_medcards_on_medcard_id"
     t.index ["pacient_id"], name: "index_medcards_on_pacient_id"
   end
 
   create_table "pacients", force: :cascade do |t|
+    t.integer "pacient_id"
     t.string "name"
     t.integer "age"
     t.string "diagnosis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"pacient_id\"", name: "index_pacients_on_pacient_id"
+    t.index ["pacient_id"], name: "index_pacients_on_pacient_id"
   end
 
   create_table "repartments", force: :cascade do |t|
+    t.integer "repartment_id"
     t.string "name"
     t.string "block"
     t.integer "clinic_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"repartment_id\"", name: "index_repartments_on_repartment_id"
     t.index ["clinic_id"], name: "index_repartments_on_clinic_id"
+    t.index ["repartment_id"], name: "index_repartments_on_repartment_id"
   end
 
   create_table "specializations", force: :cascade do |t|
+    t.integer "specialization_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index "\"specialization_id\"", name: "index_specializations_on_specialization_id"
+    t.index ["specialization_id"], name: "index_specializations_on_specialization_id"
   end
 
   add_foreign_key "doctors", "repartments"
   add_foreign_key "doctors", "specializations"
   add_foreign_key "med_certificates", "doctors"
-  add_foreign_key "med_certificates", "patients"
+  add_foreign_key "med_certificates", "pacients"
   add_foreign_key "medcards", "clinics"
   add_foreign_key "medcards", "pacients"
   add_foreign_key "repartments", "clinics"
