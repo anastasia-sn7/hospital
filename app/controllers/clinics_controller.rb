@@ -30,7 +30,7 @@ class ClinicsController < ApplicationController
     redirect_to clinics_path, notice: "Clinic was successfully destroyed."
   end
   def update
-    @clinic = @clinics.find(params[:id])
+    @clinic = Clinic.find(params[:id])
     if @clinic.update(clinic_params)
       redirect_to clinics_path, notice: "Clinic was successfully updated."
     else

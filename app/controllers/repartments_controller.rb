@@ -26,7 +26,7 @@ class RepartmentsController < ApplicationController
   end
 
   def update
-    @repartment = @repartments.find(params[:id])
+    @repartment = Repartment.find(params[:id])
     if @repartment.update(repartment_params)
       redirect_to @repartment, notice: 'Repartment was successfully updated.'
     else

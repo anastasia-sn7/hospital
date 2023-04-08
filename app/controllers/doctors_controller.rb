@@ -31,7 +31,7 @@ class DoctorsController < ApplicationController
   end
 
   def update
-    @doctor = @doctors.find(params[:id])
+    @doctor = Doctor.find(params[:id])
     if @doctor.update(doctor_params)
       redirect_to doctors_path, notice: "Doctors was successfully updated."
     else
