@@ -1,14 +1,38 @@
-<p style="color: green"><%= notice %></p>
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-<h1>Med certificates</h1>
-
-<div id="med_certificates">
-  <% @med_certificates.each do |med_certificate| %>
-    <%= render med_certificate %>
-    <p>
-      <%= link_to "Show this med certificate", med_certificate %>
-    </p>
-  <% end %>
+<p style="color: lightseagreen"><%= notice %></p>
+<div class="content has-text-centered">
+  <h1 class="h1">Med_certificates</h1>
+  <title> Med_certificates </title>
 </div>
 
-<%= link_to "New med certificate", new_med_certificate_path %>
+<div class="container is-widescreen has-text-centered is-center ">
+
+  <% column_names = @med_certificates.column_names %>
+  <div class="table-container is-align-items-center is-align-content-center is-justify-content-center is-centered" id="med_certificates">
+    <table class="table  is-centered">
+      <thead>
+      <tr>
+        <% column_names.each do |column_name| %>
+          <td><%= column_name %></td>
+        <% end %>
+        <td>Action</td>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <% @med_certificates.each do |med_certificate| %>
+        <tr>
+          <% column_names.each do |column| %>
+            <td><%= med_certificate.send(column) %></td>
+          <% end %>
+          <td><%= link_to "Show this med_certificate", med_certificate %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to "New med_certificate", new_med_certificate_path, { class: "button" } %>

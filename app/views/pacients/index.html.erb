@@ -1,2 +1,38 @@
-<h1>Pacient#index</h1>
-<p>Find me in app/views/pacient/index.html.erb</p>
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+<p style="color: lightseagreen"><%= notice %></p>
+<div class="content has-text-centered">
+  <h1 class="h1">Pacients</h1>
+  <title> Pacients </title>
+</div>
+
+<div class="container is-widescreen has-text-centered is-center ">
+
+  <% column_names = @pacients.column_names %>
+  <div class="table-container is-align-items-center is-align-content-center is-justify-content-center is-centered" id="pacients">
+    <table class="table  is-centered">
+      <thead>
+      <tr>
+        <% column_names.each do |column_name| %>
+          <td><%= column_name %></td>
+        <% end %>
+        <td>Action</td>
+      </tr>
+
+      </thead>
+      <tbody>
+
+      <% @pacients.each do |pacient| %>
+        <tr>
+          <% column_names.each do |column| %>
+            <td><%= pacient.send(column) %></td>
+          <% end %>
+          <td><%= link_to "Show this pacient", pacient %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to "New pacient", new_pacient_path, { class: "button" } %>

@@ -1,5 +1,8 @@
-<h2>Forgot your password?</h2>
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
+<h2 class="h2">Forgot your password?</h2>
+
+<body class = "container" >
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -9,7 +12,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions", class: "button" %>
   </div>
 <% end %>
 
