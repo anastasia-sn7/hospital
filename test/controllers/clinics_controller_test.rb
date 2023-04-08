@@ -17,7 +17,7 @@ class ClinicsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create clinic" do
     assert_difference("Clinic.count") do
-      post clinics_url, params: { clinic: { address: @clinic.address, clinic_id: @clinic.clinic_id, name: @clinic.name, number: @clinic.number } }
+      post clinics_url, params: { clinic: { address: @clinic.address, clinic_id: @clinic.clinic_id, name: @clinic.name, number: @clinic.number, year: @clinic.year } }
     end
 
     assert_redirected_to clinic_url(Clinic.last)
@@ -34,7 +34,7 @@ class ClinicsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update clinic" do
-    patch clinic_url(@clinic), params: { clinic: { address: @clinic.address, clinic_id: @clinic.clinic_id, name: @clinic.name, number: @clinic.number } }
+    patch clinic_url(@clinic), params: { clinic: { address: @clinic.address, clinic_id: @clinic.clinic_id, name: @clinic.name, number: @clinic.number, year: @clinic.year } }
     assert_redirected_to clinic_url(@clinic)
   end
 
