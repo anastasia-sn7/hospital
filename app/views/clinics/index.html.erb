@@ -1,5 +1,4 @@
 <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-
 <p style="color: lightseagreen"><%= notice %></p>
 <div class="content has-text-centered">
   <h1 class="h1">Clinics</h1>
@@ -32,6 +31,15 @@
       <% end %>
       </tbody>
     </table>
+    <div>
+      <% if @page != 0 %>
+        <%= link_to "Previous page", clinics_path(page: @page - 1), { class: "button" } %>
+      <% end %>
+      <% @all = Clinic.all
+        if (@page+1)*10 < @all.length() %>
+        <%= link_to "Next page", clinics_path(page: @page + 1), { class: "button" } %>
+      <% end %>
+    </div>
   </div>
 </div>
 

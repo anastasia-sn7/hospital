@@ -1,9 +1,11 @@
 class SpecializationsController < ApplicationController
+  PER_PAGE = 10
   before_action :set_specialization, only: [:show, :edit, :update, :destroy]
 
   # GET /specializations
   def index
-    @specializations = Specialization.all
+    @page = params.fetch(:page, 0).to_i
+    @specializations = Specialization.offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   # GET /specializations/1

@@ -1,6 +1,9 @@
 class RepartmentsController < ApplicationController
+
+  PER_PAGE = 10
   def index
-    @repartments = Repartment.all
+    @page = params.fetch(:page, 0).to_i
+    @repartments = Repartment.offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   def show

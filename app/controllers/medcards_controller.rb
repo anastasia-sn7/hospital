@@ -1,7 +1,9 @@
 class MedcardsController < ApplicationController
+  PER_PAGE = 10
 
   def index
-    @medcards = Medcard.all
+    @page = params.fetch(:page, 0).to_i
+    @medcards = Medcard.offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   def show

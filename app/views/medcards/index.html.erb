@@ -32,6 +32,15 @@
       <% end %>
       </tbody>
     </table>
+    <div>
+      <% if @page != 0 %>
+        <%= link_to "Previous page", medcards_path(page: @page - 1), { class: "button" } %>
+      <% end %>
+      <% @all = Medcard.all
+         if (@page+1)*10 < @all.length() %>
+        <%= link_to "Next page", medcards_path(page: @page + 1), { class: "button" } %>
+      <% end %>
+    </div>
   </div>
 </div>
 

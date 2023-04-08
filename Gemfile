@@ -24,6 +24,7 @@ gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
+gem "kaminari"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -77,3 +78,6 @@ group :test do
   gem "webdrivers"
   gem "minitest"
 end
+
+gem 'rubocop'
+gem 'rubocop-rails'

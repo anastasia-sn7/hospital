@@ -1,6 +1,9 @@
 class ClinicsController < ApplicationController
+  PER_PAGE = 10
+
   def index
-    @clinics = Clinic.all
+    @page = params.fetch(:page, 0).to_i
+    @clinics = Clinic.offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   def show
@@ -12,7 +15,7 @@ class ClinicsController < ApplicationController
   end
 
   def create
-    @clinic = Clinic.create params[clinic_params]
+    @clinic = Clinic.new(clinic_params)
     if @clinic.save
       redirect_to clinics_path, notice: "Clinic was successfully created."
     else

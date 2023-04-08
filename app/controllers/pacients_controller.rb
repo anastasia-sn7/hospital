@@ -1,7 +1,9 @@
 class PacientsController < ApplicationController
+  PER_PAGE = 10
 
   def index
-    @pacients = Pacient.all
+    @page = params.fetch(:page, 0).to_i
+    @pacients = Pacient.offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   def show

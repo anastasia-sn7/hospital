@@ -1,6 +1,8 @@
 class DoctorsController < ApplicationController
+  PER_PAGE = 10
   def index
-    @doctors = Doctor.all
+    @page = params.fetch(:page, 0).to_i
+    @doctors = Doctor.offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   def show

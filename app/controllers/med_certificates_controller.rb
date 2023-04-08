@@ -1,9 +1,11 @@
 class MedCertificatesController < ApplicationController
   before_action :set_med_certificate, only: %i[ show edit update destroy ]
+  PER_PAGE = 10
 
   # GET /med_certificates or /med_certificates.json
   def index
-    @med_certificates = MedCertificate.all
+    @page = params.fetch(:page, 0).to_i
+    @med_certificates = MedCertificate.offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   # GET /med_certificates/1 or /med_certificates/1.json

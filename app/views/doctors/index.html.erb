@@ -32,6 +32,16 @@
       <% end %>
       </tbody>
     </table>
+    <div>
+      <% if @page != 0 %>
+        <%= link_to "Previous page", doctors_path(page: @page - 1), { class: "button" } %>
+      <% end %>
+      <% @all = Doctor.all
+         if (@page+1)*10 < @all.length() %>
+        <%= link_to "Next page", doctors_path(page: @page + 1), { class: "button" } %>
+      <% end %>
+      <h1><%= @page+1 %></h1>
+    </div>
   </div>
 </div>
 
