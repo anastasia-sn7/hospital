@@ -7,15 +7,14 @@ class MedCertificatesController < ApplicationController
   end
 
   # GET /med_certificates/1 or /med_certificates/1.json
-  def show
-  end
-
   # GET /med_certificates/new
   def new
     @med_certificate = MedCertificate.new
   end
 
-  # GET /med_certificates/1/edit
+  def show
+  end
+
   def edit
   end
 
