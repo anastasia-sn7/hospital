@@ -12,7 +12,7 @@ class ClinicsController < ApplicationController
   end
 
   def create
-    @clinic = Clinic.create params[clinic_params]
+    @clinic = Clinic.new(clinic_params)
     if @clinic.save
       redirect_to clinics_path, notice: "Clinic was successfully created."
     else
