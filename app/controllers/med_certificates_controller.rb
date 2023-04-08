@@ -64,6 +64,6 @@ class MedCertificatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def med_certificate_params
-      params.require(:med_certificate).permit(:doctor_id, :patient_id)
+      params.require(:med_certificate).permit(:doctor_id, :pacient_id)
     end
 end

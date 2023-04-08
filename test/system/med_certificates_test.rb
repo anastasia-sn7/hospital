@@ -15,7 +15,7 @@ class MedCertificatesTest < ApplicationSystemTestCase
     click_on "New med certificate"
 
     fill_in "Doctor", with: @med_certificate.doctor_id
-    fill_in "Patient", with: @med_certificate.patient_id
+    fill_in "Pacient", with: @med_certificate.pacient_id
     click_on "Create Med certificate"
 
     assert_text "Med certificate was successfully created"
@@ -27,7 +27,7 @@ class MedCertificatesTest < ApplicationSystemTestCase
     click_on "Edit this med certificate", match: :first
 
     fill_in "Doctor", with: @med_certificate.doctor_id
-    fill_in "Patient", with: @med_certificate.patient_id
+    fill_in "Pacient", with: @med_certificate.pacient_id
     click_on "Update Med certificate"
 
     assert_text "Med certificate was successfully updated"

@@ -2,8 +2,8 @@
 
 one:
   doctor: one
-  patient: one
+  pacient: one
 
 two:
   doctor: two
-  patient: two
+  pacient: two

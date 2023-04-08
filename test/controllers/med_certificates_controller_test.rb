@@ -17,7 +17,7 @@ class MedCertificatesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create med_certificate" do
     assert_difference("MedCertificate.count") do
-      post med_certificates_url, params: { med_certificate: { doctor_id: @med_certificate.doctor_id, patient_id: @med_certificate.patient_id } }
+      post med_certificates_url, params: { med_certificate: { doctor_id: @med_certificate.doctor_id, pacient_id: @med_certificate.pacient_id } }
     end
 
     assert_redirected_to med_certificate_url(MedCertificate.last)
@@ -34,7 +34,7 @@ class MedCertificatesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update med_certificate" do
-    patch med_certificate_url(@med_certificate), params: { med_certificate: { doctor_id: @med_certificate.doctor_id, patient_id: @med_certificate.patient_id } }
+    patch med_certificate_url(@med_certificate), params: { med_certificate: { doctor_id: @med_certificate.doctor_id, pacient_id: @med_certificate.pacient_id } }
     assert_redirected_to med_certificate_url(@med_certificate)
   end
 
