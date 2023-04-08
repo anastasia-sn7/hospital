@@ -1,8 +1,12 @@
-<% if user_signed_in? %>
-  <div> Greetings, <%= current_user.email %></div>
-  <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
-  <% else %>
-  <%= button_to "Sign In", new_user_session_path %>
-<% end %>
-<h1> Welcome to our Hospital! </h1>
-<img src=/img/cute-photos-of-cats.jpg>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital | Welcome</title>
+  <link rel="stylesheet" href="application.css">
+</head>
+<header class="h1">
+  <% if user_signed_in? %>
+    <div class = "body"> Greetings, <%= current_user.email %></div>
+  <% end %>
+  <h1 class = "h1"> Welcome to our Hospital! </h1>
+</header>

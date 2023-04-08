@@ -13,3 +13,63 @@
  *= require_tree .
  *= require_self
  */
+body {
+    background-color: #f5f5f5;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+/* Center the content area */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Style the heading */
+.h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Style the paragraph text */
+p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+/* Style the links */
+a {
+    color: #0077cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style the buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: lightseagreen;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #005ea6;
+}

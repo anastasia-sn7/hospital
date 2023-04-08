@@ -77,5 +77,3 @@ group :test do
   gem "webdrivers"
   gem "minitest"
 end
-
-gem "tailwindcss-rails", "~> 2.0"

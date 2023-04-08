@@ -5,14 +5,61 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  </head>
+
   <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <%= yield %>
-    </main>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <nav class="navbar margin0" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="http://127.0.0.1:3000/">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+
+          <% if user_signed_in? %>
+            <div class="buttons">
+              <%= button_to destroy_user_session_path, method: :delete, class: "button is-primary" do %>
+                Sign Out
+              <% end %>
+            </div>
+          <% else %>
+            <div class="buttons">
+              <%= button_to new_user_registration_path, class: "button is-primary" do %>
+                Sign Up
+              <% end %>
+              <%= button_to new_user_session_path, class: "button is-light" do %>
+                Sign In
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <hr class="solid">
+  </nav>
+  <hr class="solid">
+
+  <%= yield %>
+
   </body>
 </html>

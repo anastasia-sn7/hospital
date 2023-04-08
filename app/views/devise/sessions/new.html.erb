@@ -1,5 +1,8 @@
-<h2>Log in</h2>
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
+<h2 class="h2">Log in</h2>
+
+<body class = "container" >
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
@@ -19,7 +22,7 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "button" %>
   </div>
 <% end %>
 
