@@ -16,6 +16,8 @@
         <% column_names.each do |column_name| %>
           <td><%= column_name %></td>
         <% end %>
+        <td>Number of medcard</td>
+        <td>Doctors</td>
         <td>Action</td>
       </tr>
 
@@ -27,6 +29,12 @@
           <% column_names.each do |column| %>
             <td><%= pacient.send(column) %></td>
           <% end %>
+          <td><%= pacient.medcard ? pacient.medcard.id : 'none' %></td>
+          <td>
+            <% pacient.doctors.each do |doctor| %>
+              <%= link_to doctor.name, doctor %>
+            <% end %>
+          </td>
           <td><%= link_to "Show this pacient", pacient %></td>
         </tr>
       <% end %>
