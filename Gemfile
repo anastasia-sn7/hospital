@@ -81,3 +81,6 @@ end
 
 gem 'rubocop'
 gem 'rubocop-rails'
+
+gem 'nokogiri'
+gem 'open-uri'
