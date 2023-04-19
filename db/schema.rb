@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_08_134426) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_19_220600) do
   create_table "clinics", force: :cascade do |t|
     t.integer "clinic_id"
     t.string "name"
@@ -19,6 +19,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_08_134426) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "year"
+    t.string "clinic_type"
+    t.string "city"
+    t.float "RatingMortality"
     t.index ["clinic_id"], name: "index_clinics_on_clinic_id"
   end
 
