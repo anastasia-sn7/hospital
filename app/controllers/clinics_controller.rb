@@ -3,7 +3,7 @@ class ClinicsController < ApplicationController
 
   def index
     @page = params.fetch(:page, 0).to_i
-    @clinics = Clinic.offset(@page*PER_PAGE).limit(PER_PAGE)
+    @clinics = ClinicsQuery.call(params).offset(@page*PER_PAGE).limit(PER_PAGE)
   end
 
   def show
