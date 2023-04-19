@@ -2,29 +2,29 @@ namespace :parse do
   task :hospitals => :environment do
     require 'nokogiri'
     require 'open-uri'
+    require 'faker'
 
     html = URI.open("https://www.hospitalsafetygrade.org/all-hospitals")
-    xpath = "//table[@id='tblHospitalList']//tbody/tr"
+    xpath = "//section[@id='Content']/div/ul/li/a/text()"
 
     doc = Nokogiri::HTML(html)
-    puts doc
-    rows = doc.xpath(xpath)
+    rows = doc.css('section#Content div.column1 ul li a')
+    # puts rows
 
     clinics = []
     rows.each do |row|
-      puts row
-      cells = row.css('td')
-      name = cells[1].text.strip
-      address = cells[2].text.strip
-      number = cells[3].text.strip
+      name = row.text.strip
+      address = Faker::Address.street_address
+      number = rand(10 ** 10).to_s.rjust(10, '0')
+
       clinics << { name: name, address: address, number: number }
     end
 
     puts "Adding #{clinics.count} clinics to the database..."
 
-    clinics.each do |clinic|
-      Clinic.create(name: clinic[:name], address: clinic[:address], number: clinic[:number])
-    end
+     clinics.each do |clinic|
+       Clinic.create(name: clinic[:name], address: clinic[:address], number: clinic[:number])
+     end
 
     puts "Done."
   end
