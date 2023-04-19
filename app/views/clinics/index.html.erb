@@ -10,7 +10,7 @@
   <% column_names = @clinics.column_names %>
   <div class="table-container is-align-items-center is-align-content-center is-justify-content-center is-centered" id="clinics">
 
-    <%= form_with(url: clinics_path, method: :get) do |form| %>
+    <%= form_with(url: searchByNames_clinics_path, method: :get) do |form| %>
       <%= form.text_field :name, placeholder: "Search by name" %>
       <%= form.submit "Search", class: "button is-primary" %>
     <% end %>

@@ -10,6 +10,10 @@ class PacientsController < ApplicationController
     @pacient = Pacient.find(params[:id])
   end
 
+  def searchByNames
+    @clinics = PacientSearchQuery.call(params[:name])
+  end
+
   def new
     @pacient = Pacient.new
   end

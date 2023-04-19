@@ -10,6 +10,10 @@ class ClinicsController < ApplicationController
     @clinic = Clinic.find(params[:id])
   end
 
+  def searchByNames
+    @clinics = ClinicSearchQuery.call(params[:name])
+  end
+
   def new
     @clinic = Clinic.new
   end

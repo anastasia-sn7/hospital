@@ -84,3 +84,4 @@ gem 'rubocop-rails'
 
 gem 'nokogiri'
 gem 'open-uri'
+gem 'faker'
