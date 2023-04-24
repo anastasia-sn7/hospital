@@ -13,4 +13,8 @@ Rails.application.routes.draw do
       get '/searchByNames', to: 'pacients#searchByNames'
     end
   end
+  get '/download' =>'downloader#download'
+  get '/downloadAll/:id' => 'downloader#downloadAll', as: 'downloadAll'
+  get '/downloadUsers' =>'downloader#downloadUsers'
+  get '/downloadCsv' =>'downloader#downloadCsv'
 end
