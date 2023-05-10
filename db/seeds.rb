@@ -631,11 +631,12 @@
 # connection.execute("CREATE VIEW MedcardsAndPacients AS SELECT pacients.name, pacients.diagnosis, medcards.name
 # FROM pacients INNER JOIN medcards ON pacients.id = medcards.pacient_id")
 
-require 'faker'
-i = 0
-while(i < 100)
-  Pacient.where(id: i).update(name: Faker::Name.name)
-  Pacient.where(id: i).update(diagnosis: Faker::Science.element)
-  Doctor.where(id: i).update(name: Faker::Name.name)
-  i += 1
-end
+# require 'faker'
+# i = 0
+# while(i < 100)
+#   Pacient.where(id: i).update(name: Faker::Name.name)
+#   Pacient.where(id: i).update(diagnosis: Faker::Science.element)
+#   Doctor.where(id: i).update(name: Faker::Name.name)
+#   i += 1
+# end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
