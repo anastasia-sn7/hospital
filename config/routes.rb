@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, controllers: {
+     sessions: 'users/sessions',
+     registrations: 'users/registrations'
+  }
   root to: "home#index"
   resources :med_certificates
   resources :clinics, :doctors, :medcards, :pacients, :repartments, :specializations

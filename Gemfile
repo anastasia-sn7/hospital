@@ -84,8 +84,13 @@ gem 'rubocop-rails'
 
 gem 'nokogiri'
 gem 'open-uri'
+
 gem 'faker'
+
 gem 'prawn'
+
 gem 'activeadmin'
 gem 'sassc'
 gem 'sprockets', '~> 4.0'
+
+gem 'activestorage'

@@ -299,6 +299,7 @@ DEPENDENCIES
   activeadmin
   activemodel
   activerecord
+  activestorage
   bootsnap
   debug
   devise

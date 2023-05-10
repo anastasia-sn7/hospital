@@ -7,6 +7,7 @@
 <header class="h1">
   <% if user_signed_in? %>
     <div class = "body"> Greetings, <%= current_user.email %></div>
+    <%= image_tag(current_user.avatar) if current_user.avatar.attached? %>
   <% end %>
   <h1 class = "h1"> Welcome to our Hospital! </h1>
 </header>
