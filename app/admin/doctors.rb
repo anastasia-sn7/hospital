@@ -7,8 +7,12 @@ ActiveAdmin.register Doctor do
     id_column
     column :name
     column :experience_in_years
-    column :specialization_id
-    column :repartment_id
+    column :specialization_id do |doc|
+      Specialization.find_by(id: doc.specialization_id).name
+    end
+    column :repartment_id do |doc|
+      Repartment.find_by(id: doc.repartment_id).name
+    end
     actions
   end
 
@@ -16,8 +20,12 @@ ActiveAdmin.register Doctor do
     attributes_table do
       row :name
       row :experience_in_years
-      row :specialization_id
-      row :repartment_id
+      row :specialization_id do |doc|
+        Specialization.find_by(id: doc.specialization_id).name
+      end
+      row :repartment_id do |doc|
+            Repartment.find_by(id: doc.repartment_id).name
+      end
       row :created_at
       row :updated_at
     end
@@ -35,10 +43,9 @@ ActiveAdmin.register Doctor do
     f.inputs do
       f.input :name
       f.input :experience_in_years
-      f.input :specialization_id
-      f.input :repartment_id
+      f.input :specialization_id, as: :select, collection: Specialization.all.map { |s| [s.name, s.id] }
+      f.input :repartment_id, as: :select, collection: Repartment.all.map { |s| [s.name, s.id] }
     end
     f.actions # Add buttons to submit/save and cancel
   end
-
 end
