@@ -10,8 +10,8 @@
   <% column_names = @clinics.column_names %>
   <div class="table-container is-align-items-center is-align-content-center is-justify-content-center is-centered" id="clinics">
 
-    <%= form_with(url: searchByNames_clinics_path, method: :get) do |form| %>
-      <%= form.text_field :name, placeholder: "Search by name" %>
+    <%= form_with(url: search_by_names_clinics_path, method: :post) do |form| %>
+      <%= form.text_field :search, placeholder: "Search by name" %>
       <%= form.submit "Search", class: "button is-primary" %>
     <% end %>
 
@@ -45,7 +45,7 @@
       <% if @page != 0 %>
         <%= link_to "Previous page", clinics_path(page: @page - 1), { class: "button" } %>
       <% end %>
-      <% @all = Clinic.all
+        <% @all = Clinic.all
         if (@page+1)*10 < @all.length() %>
         <%= link_to "Next page", clinics_path(page: @page + 1), { class: "button" } %>
       <% end %>

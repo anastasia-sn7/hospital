@@ -7,12 +7,9 @@ Rails.application.routes.draw do
   }
   root to: "home#index"
   resources :med_certificates
+  resources :library_info
   resources :clinics, :doctors, :medcards, :pacients, :repartments, :specializations
-  resources :clinics do
-    collection do
-      get '/searchByNames', to: 'clinics#searchByNames'
-    end
-  end
+  post 'clinics/search_by_names', to: 'clinics#search_by_names', as: 'search_by_names_clinics'
   resources :pacients do
     collection do
       get '/searchByNames', to: 'pacients#searchByNames'

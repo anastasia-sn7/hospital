@@ -1,3 +1,4 @@
+require 'pry'
 class ClinicsController < ApplicationController
   PER_PAGE = 10
 
@@ -10,8 +11,12 @@ class ClinicsController < ApplicationController
     @clinic = Clinic.find(params[:id])
   end
 
-  def searchByNames
-    @clinics = ClinicSearchQuery.call(params[:name])
+  def search_by_names
+    # binding.pry
+    @page = params.fetch(:page, 0).to_i
+    @clinics = ClinicSearchQuery.call(params)
+    render :index
+
   end
 
   def new
@@ -47,7 +52,7 @@ class ClinicsController < ApplicationController
 
   private
   def clinic_params
-    params.require(:clinic).permit(:clinic_id, :name, :address, :number, :year)
+    params.require(:clinic).permit(:clinic_id, :name, :address, :number, :year, :search)
   end
 
 end
